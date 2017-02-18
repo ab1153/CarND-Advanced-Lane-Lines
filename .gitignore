@@ -1,0 +1,11 @@
+/data/
+/temp/
+/__pycache__/
+/.vscode/
+
+# jupyter notebook
+.ipynb_checkpoints
+/kernel-*.json
+
+
+/data.zip
