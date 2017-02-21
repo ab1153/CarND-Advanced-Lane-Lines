@@ -7,6 +7,12 @@ import matplotlib.image as mpimg
 #%%
 import calibration
 ret, mtx, dist, rvecs, tvecs = calibration.calibrate('camera_cal/calibration*.jpg')
+
+#%%
+src = np.float32([[619,435],[659,435],[1025,674],[280,674]])
+dst = np.float32([[280,0],[1025,0],[1025,700],[280,700]])
+pers_transform = cv2.getPerspectiveTransform(src, dst)
+pers_transform_inv = cv2.getPerspectiveTransform(dst, src)
 #%%
 def undistort(bgr, dist, mtx):
     img = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
@@ -44,3 +50,9 @@ def thresh(gray, thresh=(0,255)):
     binary[(gray >= thresh[0]) & (gray <= thresh[1])] = 1
     return binary
 
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
