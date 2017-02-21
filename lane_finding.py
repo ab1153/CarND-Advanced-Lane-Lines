@@ -40,7 +40,7 @@ def slide_window(binary_warped, draw=False):
 
     left_not_found = 0
     right_not_found = 0
-    end_cond = 2
+    end_cond = 3
 
 
 
@@ -82,6 +82,9 @@ def slide_window(binary_warped, draw=False):
             break
 
     # Concatenate the arrays of indices
+    if len(left_lane_inds) == 0 or len(right_lane_inds) == 0:
+        raise
+
     left_lane_inds = np.concatenate(left_lane_inds)
     right_lane_inds = np.concatenate(right_lane_inds)
 
@@ -134,8 +137,6 @@ def find_from_poly(binary_warped, left_fit, right_fit):
 
     left_fit_m = np.polyfit(lefty * ym_per_pix, leftx * xm_per_pix, 2)
     right_fit_m = np.polyfit(righty * ym_per_pix, rightx * xm_per_pix, 2)
-
-    plt.show()
 
     ret = left_fit, right_fit, left_fit_m, right_fit_m
     return ret
