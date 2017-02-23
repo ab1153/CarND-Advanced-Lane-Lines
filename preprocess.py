@@ -14,9 +14,10 @@ dst = np.float32([[280,0],[1025,0],[1025,700],[280,700]])
 pers_transform = cv2.getPerspectiveTransform(src, dst)
 pers_transform_inv = cv2.getPerspectiveTransform(dst, src)
 #%%
-def undistort(bgr, dist, mtx):
-    img = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
-    undist_img = cv2.undistort(img, mtx, dist, None, mtx)
+def undistort(bgr, dist, mtx, is_BGR=False):
+    if is_BGR == True:
+        bgr = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+    undist_img = cv2.undistort(bgr, mtx, dist, None, mtx)
     return undist_img
 
 def sobel_abs(gray, thresh=(0,255),k=3,xy=(1,0)):

@@ -40,7 +40,7 @@ def slide_window(binary_warped, draw=False):
 
     left_not_found = 0
     right_not_found = 0
-    end_cond = 3
+    end_cond = 2
 
 
 
