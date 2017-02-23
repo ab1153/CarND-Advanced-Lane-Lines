@@ -16,9 +16,9 @@ class Context(object):
         hls = cv2.cvtColor(undist_img, cv2.COLOR_RGB2HLS)
         saturation = hls[...,2]
         gray = cv2.cvtColor(undist_img, cv2.COLOR_RGB2GRAY)
-        gradx = sobel_abs(gray, (20,255), 5)
+        gradx = sobel_abs(gray, (30,255), 5)
         grady = sobel_abs(gray, (10,255), 5, (0,1))
-        sat_bin = thresh(saturation, (180,255))    
+        sat_bin = thresh(saturation, (170,255))    
 
         combined = np.zeros_like(sat_bin)
         cond = ( (sat_bin == 1) | ((gradx == 1) & (grady==1))  )
