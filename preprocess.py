@@ -9,8 +9,8 @@ import calibration
 ret, mtx, dist, rvecs, tvecs = calibration.calibrate('camera_cal/calibration*.jpg')
 
 #%%
-src = np.float32([[619,435],[659,435],[1025,674],[280,674]])
-dst = np.float32([[280,0],[1025,0],[1025,700],[280,700]])
+src = np.float32([[592,452],[690,452],[1014,659],[294,659]])
+dst = np.float32([[294,0],[1014,0],[1014,720],[294,720]])
 pers_transform = cv2.getPerspectiveTransform(src, dst)
 pers_transform_inv = cv2.getPerspectiveTransform(dst, src)
 #%%

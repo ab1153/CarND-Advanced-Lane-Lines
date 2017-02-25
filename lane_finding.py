@@ -20,7 +20,7 @@ def slide_window(binary_warped, draw=False):
     rightx_base = np.argmax(histogram[midpoint:]) + midpoint
 
     # Choose the number of sliding windows
-    nwindows = 24
+    nwindows = 18
     # Set height of windows
     window_height = np.int(binary_warped.shape[0]/nwindows)
     # Identify the x and y positions of all nonzero pixels in the image
@@ -33,14 +33,14 @@ def slide_window(binary_warped, draw=False):
     # Set the width of the windows +/- margin
     margin = 150
     # Set minimum number of pixels found to recenter window
-    minpix = 150
+    minpix = 100
     # Create empty lists to receive left and right lane pixel indices
     left_lane_inds = []
     right_lane_inds = []
 
     left_not_found = 0
     right_not_found = 0
-    end_cond = 2
+    end_cond = 5
 
 
 
@@ -180,7 +180,6 @@ def main():
     warped = mpimg.imread('warped_example.jpg')
     warped = cv2.cvtColor(warped, cv2.COLOR_RGB2GRAY)
     left, right, _ = slide_window(warped, draw=True)
-    # find_from_poly(warped, left, right)
 
 if __name__ == '__main__':
     main()
