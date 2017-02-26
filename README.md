@@ -273,6 +273,8 @@ output_clip.write_videofile(output, audio=False)
 
 ### Discussion
 
-I have applied the transforms to pipeline to accomplish the visual "lane detecting".
-
-I think the key to the other harder challenges is find a more robust lane-detecting algorithm which can not be done by thresholding the color or the gradients of the image.
+The difficulty is to recognize the yellow and white lane lines at the same time under different lighting condition.
+When there is shadow casting on the lane, many pixels at the edges of the shadow are recognized as the part the lane line, 
+because I have applied thresholding to gradients.
+I mitigate this by reducing the searching range in the polynomial fitting stage.
+There could be a more robust approach where some specific line detectors are established to distiguish the line from the shadow considering different lighting condition.
