@@ -24,7 +24,7 @@ import calibration
 ret, mtx, dist, rvecs, tvecs = calibration.calibrate('camera_cal/calibration*.jpg')
 ```
 
-** The followings shows the original image compared with distortion correction applied: **
+##### The followings shows the original image compared with distortion correction applied: 
 
 
 ```python
