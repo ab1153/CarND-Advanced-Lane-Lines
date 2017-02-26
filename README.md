@@ -170,7 +170,7 @@ I took the code from the course with some modifications. I increased the searchi
 
 The equation to fit to lines is quadratic polynomial:
 
-![](./fit.svg)
+![](./fit.png)
 
 With this modified window-sliding algorithm I fit my lane lines as following:
 
@@ -197,9 +197,9 @@ plt.imshow(out)
 
 ** Measuring curvature **
 
-![](./curve.svg)
+![](./curve.png)
 
-where $A,B$ are the coefficients of the fit quadratic polynomial.
+where **A,B** are the coefficients of the fit quadratic polynomial.
 
 
 ```python
