@@ -52,7 +52,7 @@ ax[1].imshow(undist)
 
 ### Pipeline (single images)
 
-** Distortion correction **
+##### Distortion correction
 
 I apply the distortion correction to one of the test images like this one:
 
@@ -76,7 +76,7 @@ plt.imshow(undist_test_img)
 ![png](output_8_1.png)
 
 
-** Output the binary image **
+##### Output the binary image 
 
 I combined the color transform and gradient filter and thresholded the output to generate the binary image. The functions are implented in ** process.py **, where:
 
@@ -85,7 +85,7 @@ I combined the color transform and gradient filter and thresholded the output to
 - `sobel_dir` computes the the angle of the gradient
 - `thresh` computes the binary image by applying threshold to the previous outputs
 
-** The following shows a example ouput by combining the above mentioned functions: **
+##### The following shows a example ouput by combining the above mentioned functions:
 
 
 ```python
@@ -120,7 +120,7 @@ plt.imshow(combined, cmap='gray')
 ![png](output_11_1.png)
 
 
-** Perspective transfom **
+##### Perspective transfom 
 
 Assuming the 4 points lie on the plane and the plane is flat, I chose the points as following:
 
@@ -164,7 +164,7 @@ ax2.imshow(warp_drawn)
 ![png](output_13_1.png)
 
 
-** Fit the lane lines in the warped binary image **
+##### Fit the lane lines in the warped binary image 
 
 I took the code from the course with some modifications. I increased the searching windows and the searching width along with an early stopping condition.
 
@@ -195,7 +195,7 @@ plt.imshow(out)
 ![png](output_15_1.png)
 
 
-** Measuring curvature **
+##### Measuring curvature
 
 ![](./curve.png)
 
@@ -210,7 +210,7 @@ left_radius, right_radius = calculate_radii(y_bottom, left_m, right_m)
 radius_curv = 0.5 * (left_radius + right_radius)
 ```
 
-** Deviation of the center **
+##### Deviation of the center
 
 Assuming the camera is at the center of the car, I compute how far the center deviates from the center of lanes.
 
@@ -220,7 +220,7 @@ from lane_finding import calculate_deviation
 deviation = calculate_deviation(y_bottom, width, left_m, right_m)
 ```
 
-** Mark the lane in the test image **
+##### Mark the lane in the test image
 
 
 ```python
