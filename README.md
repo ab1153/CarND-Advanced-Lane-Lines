@@ -170,7 +170,7 @@ I took the code from the course with some modifications. I increased the searchi
 
 The equation to fit to lines is quadratic polynomial:
 
-$$ f(y) = Ay^2 + By + C $$
+![](./fit.svg)
 
 With this modified window-sliding algorithm I fit my lane lines as following:
 
@@ -197,7 +197,7 @@ plt.imshow(out)
 
 ** Measuring curvature **
 
-$$ R_{curve} = \frac {(1+(2Ay+B)^2)^{3/2}} {|2A|} $$
+![](./curve.svg)
 
 where $A,B$ are the coefficients of the fit quadratic polynomial.
 
